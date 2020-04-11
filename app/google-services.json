@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "536601263470",
+    "firebase_url": "https://betaversionmaya2.firebaseio.com",
+    "project_id": "betaversionmaya2",
+    "storage_bucket": "betaversionmaya2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:536601263470:android:af5b1acddb13e8f68a557f",
+        "android_client_info": {
+          "package_name": "com.example.betaversionmaya2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "536601263470-9onbeq7jrfbjcokakfitskqsaimfqkk7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8bi_RYg6NeNwPEpQI9RFPxdfQKA6ZQ3I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "536601263470-9onbeq7jrfbjcokakfitskqsaimfqkk7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
