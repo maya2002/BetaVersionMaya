@@ -1,99 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/bg_login"
     tools:context=".MainActivity">
+
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"/>
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="112dp"
-        android:layout_marginLeft="112dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="112dp"
-        android:layout_marginRight="112dp"
-        android:gravity="center|center_horizontal|center_vertical"
         android:text="BabysitterFinder"
+        android:textColor="@color/colorAccent"
         android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textStyle="bold" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.3" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="123dp"
-        android:layout_marginLeft="123dp"
-        android:layout_marginTop="88dp"
-        android:layout_marginEnd="124dp"
-        android:layout_marginRight="124dp"
         android:text="Hello! how would you like to sign up?"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        android:textColor="@android:color/white" />
 
-    <Button
-        android:id="@+id/signUpParents"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="105dp"
-        android:layout_marginLeft="105dp"
-        android:layout_marginTop="25dp"
-        android:text="Parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/signUpBabysitter"
-        android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/signUpParents"
+            android:layout_width="wrap_content"
+            android:layout_height="73dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_login"
+            android:text="Parent"
+            android:textColor="@color/login_form_details" />
+
+        <Button
+            android:id="@+id/signUpBabysitter"
+            android:layout_width="wrap_content"
+            android:layout_height="73dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_login"
+            android:text="Babysitter"
+            android:textColor="@color/login_form_details" />
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="101dp"
-        android:layout_marginRight="101dp"
-        android:text="Babysitter"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        android:layout_weight="0.1" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="65dp"
-        android:layout_marginLeft="65dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="66dp"
-        android:layout_marginRight="66dp"
         android:text="Have an account? Choose entry below!"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signUpBabysitter" />
+        android:textColor="@android:color/white" />
 
     <Button
         android:id="@+id/loginParents"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="109dp"
-        android:layout_marginLeft="109dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="110dp"
-        android:layout_marginRight="110dp"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:background="@drawable/bg_login"
         android:text="Login as a parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        android:textColor="@color/login_form_details" />
 
     <Button
         android:id="@+id/loginBabysitter"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:background="@drawable/bg_login"
         android:text="Login as a babysitter"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginParents" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:textColor="@color/login_form_details" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"/>
+</LinearLayout>

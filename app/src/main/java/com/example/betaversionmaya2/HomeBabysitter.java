@@ -24,16 +24,6 @@ public class HomeBabysitter extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_babysitter);
-        //        Toolbar toolbar = findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-
-//        drawer = findViewById(R.id.drawerLayoutHomeMajikan);
-//        NavigationView navigationView = findViewById(R.id.nav_view);
-//        navigationView.setNavigationItemSelectedListener(this);
-//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawer,toolbar,R.string.navigation_drawer_open, R.string.navigation_drawer_open);
-//        drawer.addDrawerListener(toggle);
-//        toggle.syncState();
-
 
         mAuth = FirebaseAuth.getInstance();
         currentUserId = mAuth.getUid();

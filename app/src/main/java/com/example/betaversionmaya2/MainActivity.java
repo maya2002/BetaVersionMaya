@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     Button ParentsList, BabysitterList, EnterParents, EnterBabysitter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         ParentsList = findViewById(R.id.signUpParents);
         BabysitterList = findViewById(R.id.signUpBabysitter);
         EnterParents = findViewById(R.id.loginParents);
-        EnterBabysitter = findViewById(R.id.loginParents);
+        EnterBabysitter = findViewById(R.id.loginBabysitter);
 
         ParentsList.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,4 +48,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 }
