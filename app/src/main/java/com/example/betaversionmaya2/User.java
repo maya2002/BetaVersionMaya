@@ -2,7 +2,7 @@ package com.example.betaversionmaya2;
 
 public class User {
     private String name, email, phone, uid, address, city, province, zip;
-    private Boolean parents=false;
+    private Boolean parents;
 
     public User (){}
     public User (String name, String email, String uid, String phone,String address, String city, String province, String zip,Boolean parents) {
