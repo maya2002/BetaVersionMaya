@@ -11,28 +11,28 @@ public class Offer {
         this.remark=remark;
     }
 
-    public String getUidP() {
-        return uidP;
+    public String getUidB() {
+        return uidB;
     }
 
-    public void setUidP(String uidP) {
-        this.uidP=uidP;
+    public void setUidB(String uidB) {
+        this.uidB=uidB;
     }
 
-    public String getDatetime() {
-        return datetime;
+    public int getPrice() {
+        return price;
     }
 
-    public void setDatetime(String datetime) {
-        this.datetime=datetime;
+    public void setPrice(int price) {
+        this.price=price;
     }
 
-    public String getDur() {
-        return dur;
+    public String getRemark() {
+        return remark;
     }
 
-    public void setDur(String dur) {
-        this.dur=dur;
+    public void setRemark(String remark) {
+        this.remark=remark;
     }
 
 }

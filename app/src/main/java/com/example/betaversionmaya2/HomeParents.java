@@ -1,5 +1,6 @@
 package com.example.betaversionmaya2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -21,6 +22,8 @@ public class HomeParents extends AppCompatActivity {
 
 
     public void order(View view) {
+        Intent i = new Intent(HomeParents.this, OrderBabysitter.class);
+        startActivity(i);
     }
 }
 
