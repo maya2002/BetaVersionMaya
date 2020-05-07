@@ -2,9 +2,11 @@ package com.example.betaversionmaya2;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -21,7 +23,24 @@ import static com.example.betaversionmaya2.FBref.refBUsers;
 
 public class BabysitterList extends AppCompatActivity {
     EditText BabysitterName, BabysitterEmail, BabysitterPwd, BabysitterAddress, BabysitterCity, BabysitterProvince, BabysitterZIP, BabysitterPhone;
+    CheckBox cBstayconnect;
     String BSN, BSE, BSPwd, BSA,BSC, BSPR, BSZIP, BSPN, userId;
+
+    /**
+     * On activity start - Checking if user already logged in.
+     * If logged in & asked to be remembered - pass on.
+     * <p>
+     */
+    @Override
+    protected void onStart() {
+        super.onStart();
+        SharedPreferences settings=getSharedPreferences("PREFS_NAME",MODE_PRIVATE);
+        Boolean isChecked=settings.getBoolean("stayConnect",false);
+        Intent si = new Intent(BabysitterList.this,HomeBabysitter.class);
+        if (refAuth.getCurrentUser()!=null && isChecked) {
+            startActivity(si);
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +55,7 @@ public class BabysitterList extends AppCompatActivity {
         BabysitterCity = findViewById(R.id.BabysitterCityList);
         BabysitterProvince = findViewById(R.id.BabysitterProvincialList);
         BabysitterZIP = findViewById(R.id.BabysitterZIPList);
+        cBstayconnect = findViewById(R.id.cBstayconnect);
     }
 
     public void regBabysitter(View view) {
@@ -88,6 +108,11 @@ public class BabysitterList extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     pd.dismiss();
                     if (task.isSuccessful()) {
+                        SharedPreferences settings=getSharedPreferences("PREFS_NAME",MODE_PRIVATE);
+                        SharedPreferences.Editor editor=settings.edit();
+                        editor.putBoolean("stayConnect",cBstayconnect.isChecked());
+                        editor.putBoolean("parents",false);
+                        editor.commit();
                         userId = refAuth.getCurrentUser().getUid();
                         User userdb=new User(BSN,BSE,userId,BSPN,BSA,BSC,BSPR,BSZIP,false);
                         refBUsers.child(BSN).setValue(userdb);

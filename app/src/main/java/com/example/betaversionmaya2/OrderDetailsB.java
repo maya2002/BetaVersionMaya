@@ -33,57 +33,10 @@ public class OrderDetailsB extends AppCompatActivity {
     String tmpstr;
     Order order;
 
-
-    com.google.firebase.database.ValueEventListener VEL = new ValueEventListener() {
-        @Override
-        public void onDataChange(@NonNull DataSnapshot dS) {
-            if (dS.exists()) {
-                for(DataSnapshot data : dS.getChildren()) {
-                    order = data.getValue(Order.class);
-                    uidP=order.getUidP();
-                    datetime=order.getDatetime();
-                    dur=order.getDur();
-                    Premark=order.getRemark();
-                    offerlist=order.getOfferlist();
-                }
-            }
-        }
-        @Override
-        public void onCancelled(@NonNull DatabaseError databaseError) {
-        }
-    };
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_details_b);
-
-        Intent gi=getIntent();
-        ordernum=gi.getStringExtra("ordernum");
-
-        Query query=refOrders.orderByChild("datetime").equalTo(ordernum);
-        query.addListenerForSingleValueEvent(VEL);
-
-        Query query1=refPUsers.orderByChild("uid").equalTo(uidP);
-        query1.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dS) {
-                if (dS.exists()) {
-                    for(DataSnapshot data : dS.getChildren()) {
-                        User userP = data.getValue(User.class);
-                        parents=userP.getName();
-                    }
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
-        });
-
-        FirebaseUser fbuser = refAuth.getCurrentUser();
-        uidB = fbuser.getUid();
 
         eTremark = (EditText) findViewById(R.id.eTremark);
         eTprice= (EditText) findViewById(R.id.eTprice);
@@ -91,10 +44,50 @@ public class OrderDetailsB extends AppCompatActivity {
         tVparents= (TextView) findViewById(R.id.tVparents);
         tVPremark= (TextView) findViewById(R.id.tVPremark);
 
-        tmpstr=viewDateTime(datetime);
-        tVdatetime.setText("At "+tmpstr+" for "+dur+" hours");
-        tVPremark.setText(Premark);
-        tVparents.setText(parents);
+        Intent gi=getIntent();
+        ordernum=gi.getStringExtra("ordernum");
+
+        FirebaseUser fbuser = refAuth.getCurrentUser();
+        uidB = fbuser.getUid();
+
+        Query query=refOrders.orderByChild("datetime").equalTo(ordernum);
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dS) {
+                if (dS.exists()) {
+                    for(DataSnapshot data : dS.getChildren()) {
+                        order = data.getValue(Order.class);
+                        uidP=order.getUidP();
+                        datetime=order.getDatetime();
+                        dur=order.getDur();
+                        Premark=order.getRemark();
+                        offerlist=order.getOfferlist();
+                    }
+                    tmpstr=viewDateTime(datetime);
+                    tVdatetime.setText("At "+tmpstr+" for "+dur+" hours");
+                    tVPremark.setText(Premark);
+                    Query query1=refPUsers.orderByChild("uid").equalTo(uidP);
+                    query1.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dS) {
+                            if (dS.exists()) {
+                                for(DataSnapshot data : dS.getChildren()) {
+                                    User userP = data.getValue(User.class);
+                                    parents=userP.getName();
+                                }
+                                tVparents.setText(parents);
+                            }
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                        }
+                    });
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
     }
 
 

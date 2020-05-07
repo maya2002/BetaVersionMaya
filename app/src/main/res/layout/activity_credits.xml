@@ -8,6 +8,11 @@
     android:background="@drawable/bg_login"
     tools:context="com.example.betaversionmaya2.Credits">
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
     <TextView
         android:id="@+id/tVparents"
         android:layout_width="match_parent"
@@ -83,6 +88,11 @@
         android:gravity="center"
         android:textSize="30dp"
         android:text="Grade/school: 12th,Amal mekif zain  " />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2" />
 
 
 </LinearLayout>
