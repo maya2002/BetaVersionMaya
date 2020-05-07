@@ -105,7 +105,7 @@ public class OrderBabysitter extends AppCompatActivity implements AdapterView.On
                 public void onClick(DialogInterface dialog, int which) {
                     remark=eTremark.getText().toString();
                     ArrayList<Offer> offers=new ArrayList<Offer>();
-                    Order newOrder=new Order(uidP,datetime,dur,remark,offers,true);
+                    Order newOrder=new Order(uidP,"Null",datetime,dur,remark,offers,true);
                     refOrders.child(datetime).setValue(newOrder);
                     Intent i = new Intent(OrderBabysitter.this, HomeParents.class);
                     startActivity(i);

@@ -3,6 +3,7 @@ package com.example.betaversionmaya2;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -19,6 +20,7 @@ public class LoginParents extends AppCompatActivity {
 
     EditText emailParents, passwordParents;
     String emailIdP, pwdP;
+    CheckBox cBconnectview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +29,9 @@ public class LoginParents extends AppCompatActivity {
 
         emailParents = findViewById(R.id.loginEmailParents);
         passwordParents = findViewById(R.id.loginPasswordParents);
-
+        cBconnectview=(CheckBox)findViewById(R.id.cBconnectview);
     }
-
+    
     public void signInParents(View view) {
         emailIdP = emailParents.getText().toString();
         pwdP = passwordParents.getText().toString();

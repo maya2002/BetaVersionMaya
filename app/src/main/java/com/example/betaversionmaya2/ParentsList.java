@@ -2,9 +2,11 @@ package com.example.betaversionmaya2;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -15,16 +17,31 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 import static com.example.betaversionmaya2.FBref.refAuth;
 import static com.example.betaversionmaya2.FBref.refPUsers;
 
 public class ParentsList extends AppCompatActivity {
     private EditText ParentsName, ParentsEmail, ParentsPwd, ParentsAddress, ParentsCity, ParentsProvince, ParentsZIP, ParentsPhone;
-    FirebaseFirestore mFirestore;
+    CheckBox cBstayconnect;
     String PN, PE, PPwd, PA,PC, PPR, PZIP, PPN, userId;
     String statusParents = "parents";
+
+    /**
+     * On activity start - Checking if user already logged in.
+     * If logged in & asked to be remembered - pass on.
+     * <p>
+     */
+    @Override
+    protected void onStart() {
+        super.onStart();
+        SharedPreferences settings=getSharedPreferences("PREFS_NAME",MODE_PRIVATE);
+        Boolean isChecked=settings.getBoolean("stayConnect",false);
+        Intent si = new Intent(ParentsList.this,HomeParents.class);
+        if (refAuth.getCurrentUser()!=null && isChecked) {
+            startActivity(si);
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +56,8 @@ public class ParentsList extends AppCompatActivity {
         ParentsCity = findViewById(R.id.ParentsCityList);
         ParentsProvince = findViewById(R.id.ParentsProvincesList);
         ParentsZIP = findViewById(R.id.ParentsZIPList);
+        cBstayconnect = findViewById(R.id.cBstayconnect);
 
-        mFirestore = FirebaseFirestore.getInstance();
     }
 
     public void regParents(View view) {
@@ -97,6 +114,11 @@ public class ParentsList extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     pd.dismiss();
                     if (task.isSuccessful()) {
+                        SharedPreferences settings=getSharedPreferences("PREFS_NAME",MODE_PRIVATE);
+                        SharedPreferences.Editor editor=settings.edit();
+                        editor.putBoolean("stayConnect",cBstayconnect.isChecked());
+                        editor.putBoolean("parents",true);
+                        editor.commit();
                         userId = refAuth.getCurrentUser().getUid();
                         User userdb=new User(PN,PE,userId,PPN,PA,PC,PPR,PZIP,true);
                         refPUsers.child(PN).setValue(userdb);

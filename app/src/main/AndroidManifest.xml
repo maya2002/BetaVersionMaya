@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".OrderBabysitter"></activity>
+        <activity android:name=".Credits"></activity>
+        <activity android:name=".History" />
+        <activity android:name=".OrderDetailsB" />
+        <activity android:name=".OrderBabysitter" />
         <activity android:name=".LoadingApp" />
         <activity android:name=".LoginBabysitter" />
         <activity android:name=".LoginParents" />

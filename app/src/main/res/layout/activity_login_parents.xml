@@ -5,16 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_login"
+    android:orientation="horizontal"
     android:gravity="center"
-    android:orientation="vertical"
     tools:context=".LoginParents">
 
     <Space
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:orientation="vertical">
+
+        <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"/>
 
-    <TextView
+        <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Parents Login"
@@ -50,18 +61,32 @@
     <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.5" />
+        android:layout_weight="0.2" />
 
-    <Button
-        android:layout_width="wrap_content"
+    <CheckBox
+        android:id="@+id/cBconnectview"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.5"
-        android:background="@drawable/bg_login"
-        android:onClick="signInParents"
-        android:text="Enter"
-        android:textColor="@color/login_form_details" />
+        android:layout_weight="1"
+        android:text="Stay Connected" />
+
 
     <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0." />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/bg_login"
+            android:gravity="center"
+            android:onClick="signInParents"
+            android:text="Enter"
+            android:textColor="@color/login_form_details" />
+
+        <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.2" />
@@ -78,4 +103,10 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"/>
+</LinearLayout>
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"  />
 </LinearLayout>

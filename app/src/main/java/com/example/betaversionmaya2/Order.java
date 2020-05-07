@@ -3,13 +3,14 @@ package com.example.betaversionmaya2;
 import java.util.ArrayList;
 
 public class Order {
-    private String uidP, datetime, dur, remark;
+    private String uidP, uidB, datetime, dur, remark;
     private ArrayList<Offer> offerlist;
     boolean active;
 
     public Order (){}
-    public Order (String uidP, String datetime, String dur,String remark, ArrayList<Offer> offerlist,boolean active) {
+    public Order (String uidP, String uidB, String datetime, String dur,String remark, ArrayList<Offer> offerlist, boolean active) {
         this.uidP=uidP;
+        this.uidB=uidB;
         this.datetime=datetime;
         this.dur=dur;
         this.remark=remark;
@@ -23,6 +24,14 @@ public class Order {
 
     public void setUidP(String uidP) {
         this.uidP=uidP;
+    }
+
+    public String getUidB() {
+        return uidB;
+    }
+
+    public void setUidB(String uidB) {
+        this.uidB=uidB;
     }
 
     public String getDatetime() {

@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/bg_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
@@ -17,24 +18,66 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="9"
+        android:gravity="center"
         android:orientation="vertical">
 
         <Space
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="5" />
+            android:layout_weight="0.5" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/welcome"
+            android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_weight="9">
-
-        </androidx.recyclerview.widget.RecyclerView>
+            android:layout_weight="1"
+            android:textColor="@color/colorAccent"
+            android:textSize="30sp" />
 
         <Space
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1" />
+            android:layout_weight="0.5" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+
+            android:gravity="left|center_vertical"
+            android:text="Approved orders:"
+            android:textColor="@color/colorAccent" />
+
+        <ListView
+            android:id="@+id/lVapproved"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3" />
+
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".5"
+            android:gravity="left|center_vertical"
+            android:text="Active orders:"
+            android:textColor="@color/colorAccent" />
+
+        <ListView
+            android:id="@+id/lVorders"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2" />
 
     </LinearLayout>
 
