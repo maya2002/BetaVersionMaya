@@ -55,7 +55,7 @@ public class LoginParents extends AppCompatActivity {
                         SharedPreferences settings=getSharedPreferences("PREFS_NAME",MODE_PRIVATE);
                         SharedPreferences.Editor editor=settings.edit();
                         editor.putBoolean("stayConnect",cBstayconnect.isChecked());
-                        editor.putBoolean("parents",false);
+                        editor.putBoolean("parents",true);
                         editor.commit();
 
                         Intent intToHome = new Intent(LoginParents.this, HomeParents.class);
