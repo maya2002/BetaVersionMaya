@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Order {
     private String uidP, uidB, datetime, dur, remark;
-    private ArrayList<Offer> offerlist;
+    private ArrayList<Offer> offerlist = new ArrayList<>();
     boolean active;
 
     public Order (){}
@@ -50,10 +50,6 @@ public class Order {
         this.dur=dur;
     }
 
-    public ArrayList<Offer> getOfferlist(){return offerlist;}
-
-    public void setOfferlist (ArrayList offerlist){this.offerlist=offerlist;}
-
     public String getRemark() {
         return remark;
     }
@@ -61,6 +57,10 @@ public class Order {
     public void setRemark(String dur) {
         this.remark=remark;
     }
+
+    public ArrayList<Offer> getOfferlist(){return offerlist;}
+
+    public void setOfferlist (ArrayList<Offer> offerlist){this.offerlist=offerlist;}
 
     public Boolean getActive() {
         return active;
