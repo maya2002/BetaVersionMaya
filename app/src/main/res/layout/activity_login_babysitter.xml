@@ -6,17 +6,30 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_login"
     android:gravity="center"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     tools:context=".LoginBabysitter">
 
     <Space
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:orientation="vertical">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <TextView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1"
         android:text="Babysitter Login"
         android:textColor="@color/colorAccent"
         android:textSize="30sp" />
@@ -28,8 +41,9 @@
 
     <EditText
         android:id="@+id/loginEmailBabysitter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:ems="10"
         android:hint="Babysitter Email"
         android:inputType="textPersonName" />
@@ -41,9 +55,9 @@
 
     <EditText
         android:id="@+id/loginPasswordBabysitter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+android:layout_weight="1"     android:ems="10"
         android:hint="Babysitter Password"
         android:inputType="textPassword" />
 
@@ -52,30 +66,69 @@
         android:layout_height="0dp"
         android:layout_weight="0.5" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="0.5"
-        android:background="@drawable/bg_login"
-        android:onClick="signInBabysitter"
-        android:text="Enter"
-        android:textColor="@color/login_form_details" />
-
-    <Space
+    <CheckBox
+        android:id="@+id/cBconnectview"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.2" />
+        android:layout_weight="1"
+        android:text="Stay Connected" />
 
-    <TextView
-        android:id="@+id/signUpFirstBabysitter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Don't have an account? Come register here!"
-        android:onClick="goregBabysitter"
-        android:textColor="@android:color/white" />
-
-    <Space
+        <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"/>
+        android:layout_weight="0.1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.7"
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <Button
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_login"
+                android:gravity="center|center_vertical"
+                android:onClick="signInBabysitter"
+                android:text="Enter"
+                android:textColor="@color/login_form_details" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2" />
+
+        <TextView
+            android:id="@+id/signUpFirstBabysitter"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:onClick="goregBabysitter"
+            android:text="Don't have an account? Come register here!"
+            android:textColor="@android:color/white" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"/>
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"  />
 </LinearLayout>

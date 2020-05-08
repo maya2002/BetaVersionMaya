@@ -1,8 +1,10 @@
 package com.example.betaversionmaya2;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -19,14 +21,18 @@ import static com.example.betaversionmaya2.FBref.refAuth;
 public class LoginBabysitter extends AppCompatActivity {
     EditText emailBabysitter, passwordBabysitter;
     String emailIdBS, pwdBS;
+    CheckBox cBstayconnect;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_babysitter);
+
         emailBabysitter = findViewById(R.id.loginEmailBabysitter);
         passwordBabysitter = findViewById(R.id.loginPasswordBabysitter);
+        cBstayconnect=(CheckBox)findViewById(R.id.cBconnectview);
+
     }
     public void signInBabysitter(View view) {
         emailIdBS = emailBabysitter.getText().toString();
@@ -47,6 +53,12 @@ public class LoginBabysitter extends AppCompatActivity {
                     if(!task.isSuccessful()){
                         Toast.makeText(LoginBabysitter.this, "Login error, please login again", Toast.LENGTH_SHORT).show();
                     } else {
+                        SharedPreferences settings=getSharedPreferences("PREFS_NAME",MODE_PRIVATE);
+                        SharedPreferences.Editor editor=settings.edit();
+                        editor.putBoolean("stayConnect",cBstayconnect.isChecked());
+                        editor.putBoolean("parents",false);
+                        editor.commit();
+
                         Intent intToHome = new Intent(LoginBabysitter.this, HomeBabysitter.class);
                         startActivity(intToHome);
                     }

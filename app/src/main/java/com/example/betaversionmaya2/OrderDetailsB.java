@@ -89,17 +89,17 @@ public class OrderDetailsB extends AppCompatActivity {
                         public void onCancelled(@NonNull DatabaseError databaseError) {
                         }
                     });
-/*                    if (offerlist!=null){
-                        for (){
-                            ext offer
-                                if (uidB==offer.getUidB) {
-                                    eTremark.setText(offer.getremark())
-                                    eTprice.setText(offer.getPrice())
+                   if (offerlist!=null){
+                        for (int i=1 ;i<offerlist.size() ;i++){
+                            Offer offer=offerlist.get(i);
+                                if (uidB==offer.getUidB()) {
+                                    eTremark.setText(offer.getRemark());
+                                    eTprice.setText(offer.getPrice());
                                     orderOffered=true;
                                 }
 
                         }
-                    }*/
+                    }
                 }
             }
             @Override
@@ -117,7 +117,7 @@ public class OrderDetailsB extends AppCompatActivity {
         if (Bremark.isEmpty() || Bprice.isEmpty()) {
             Toast.makeText(this, "Please fill all order!", Toast.LENGTH_LONG).show();
         } else if (orderOffered) {
-            Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Offer already exist", Toast.LENGTH_LONG).show();
             Intent i = new Intent(OrderDetailsB.this, HomeBabysitter.class);
             startActivity(i);
         } else {
@@ -129,7 +129,7 @@ public class OrderDetailsB extends AppCompatActivity {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     BpriceInt = Integer.parseInt(Bprice);
-                    Offer offer=new Offer(uidB,BpriceInt,Bremark);
+                    Offer offer=new Offer(uidB,BpriceInt,Bremark,false);
                     if (offerlist==null) {
                         offerlist=new ArrayList<Offer>();
                     }

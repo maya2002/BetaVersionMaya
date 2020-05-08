@@ -1,6 +1,7 @@
 package com.example.betaversionmaya2;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
@@ -20,7 +21,7 @@ public class LoginParents extends AppCompatActivity {
 
     EditText emailParents, passwordParents;
     String emailIdP, pwdP;
-    CheckBox cBconnectview;
+    CheckBox cBstayconnect;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +30,7 @@ public class LoginParents extends AppCompatActivity {
 
         emailParents = findViewById(R.id.loginEmailParents);
         passwordParents = findViewById(R.id.loginPasswordParents);
-        cBconnectview=(CheckBox)findViewById(R.id.cBconnectview);
+        cBstayconnect=(CheckBox)findViewById(R.id.cBconnectview);
     }
     
     public void signInParents(View view) {
@@ -51,6 +52,12 @@ public class LoginParents extends AppCompatActivity {
                     if(!task.isSuccessful()){
                         Toast.makeText(LoginParents.this, "Login error, please login again", Toast.LENGTH_SHORT).show();
                     } else {
+                        SharedPreferences settings=getSharedPreferences("PREFS_NAME",MODE_PRIVATE);
+                        SharedPreferences.Editor editor=settings.edit();
+                        editor.putBoolean("stayConnect",cBstayconnect.isChecked());
+                        editor.putBoolean("parents",false);
+                        editor.commit();
+
                         Intent intToHome = new Intent(LoginParents.this, HomeParents.class);
                         startActivity(intToHome);
                     }

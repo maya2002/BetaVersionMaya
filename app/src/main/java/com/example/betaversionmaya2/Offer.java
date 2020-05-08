@@ -3,12 +3,14 @@ package com.example.betaversionmaya2;
 public class Offer {
     private String uidB, remark;
     private int price;
+    private Boolean approved;
 
     public Offer (){}
-    public Offer (String uidB, int price, String remark) {
+    public Offer (String uidB, int price, String remark, Boolean approved) {
         this.uidB=uidB;
         this.price=price;
         this.remark=remark;
+        this.approved=approved;
     }
 
     public String getUidB() {
@@ -35,4 +37,11 @@ public class Offer {
         this.remark=remark;
     }
 
+    public Boolean getApproved() {
+        return approved;
+    }
+
+    public void setApproved(Boolean approved) {
+        this.approved=approved;
+    }
 }

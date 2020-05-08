@@ -35,7 +35,7 @@
         android:layout_weight="1"
         android:gravity="center"
         android:textSize="30dp"
-        android:text="App Name:" />
+        android:text="App Name: Babysitter Finder" />
 
     <Space
         android:layout_width="wrap_content"

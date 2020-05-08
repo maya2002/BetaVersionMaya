@@ -80,22 +80,38 @@
         android:layout_height="0dp"
         android:layout_weight="0.1" />
 
-        <Button
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.5"
-            android:background="@drawable/bg_login"
-            android:gravity="center"
-            android:onClick="signInParents"
-            android:text="Enter"
-            android:textColor="@color/login_form_details" />
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_login"
+                android:onClick="signInParents"
+                android:text="Enter"
+                android:textColor="@color/login_form_details" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+        </LinearLayout>
 
         <Space
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.1" />
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2" />
 
-    <TextView
+        <TextView
         android:id="@+id/signUpFirstParents"
         android:layout_width="match_parent"
         android:layout_height="0dp"
